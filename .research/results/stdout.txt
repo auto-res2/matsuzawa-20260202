@@ -252,3 +252,15 @@ WandB logging disabled (trial mode).
 WandB logging disabled (trial mode).
 === [TRIAL RUN] PASSED for proposed-mistral-7b-v0.3-commonsenseqa at Mon Feb  2 09:12:35 UTC 2026 ===
 
+=== [UV SYNC] Start at Mon Feb  2 09:14:10 UTC 2026 ===
+=== [UV SYNC] Finished successfully at Mon Feb  2 09:14:11 UTC 2026 ===
+=== [FULL EXPERIMENT] Start for proposed-flan-t5-small-commonsenseqa at Mon Feb  2 09:14:11 UTC 2026 ===
+WandB URL: https://wandb.ai/airas/2026-02-02/runs/proposed-flan-t5-small-commonsenseqa
+[2026-02-02 09:14:31,749][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/ChilleD/CommonsenseQA/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+[2026-02-02 09:14:31,761][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/ChilleD/CommonsenseQA/a36541679f528e9720788044ef3221da66aacc4e/README.md "HTTP/1.1 200 OK"
+[2026-02-02 09:14:31,775][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/ChilleD/CommonsenseQA/a36541679f528e9720788044ef3221da66aacc4e/README.md "HTTP/1.1 200 OK"
+[2026-02-02 09:14:31,961][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/ChilleD/CommonsenseQA/resolve/a36541679f528e9720788044ef3221da66aacc4e/CommonsenseQA.py "HTTP/1.1 404 Not Found"
+[2026-02-02 09:14:32,542][httpx][INFO] - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/ChilleD/CommonsenseQA/ChilleD/CommonsenseQA.py "HTTP/1.1 404 Not Found"
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mproposed-flan-t5-small-commonsenseqa[0m at: [34mhttps://wandb.ai/airas/2026-02-02/runs/proposed-flan-t5-small-commonsenseqa[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20260202_091430-proposed-flan-t5-small-commonsenseqa/logs[0m
