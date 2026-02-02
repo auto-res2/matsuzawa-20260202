@@ -252,3 +252,52 @@ WandB logging disabled (trial mode).
 WandB logging disabled (trial mode).
 === [TRIAL RUN] PASSED for proposed-mistral-7b-v0.3-commonsenseqa at Mon Feb  2 09:12:35 UTC 2026 ===
 
+=== [UV SYNC] Start at Mon Feb  2 09:14:10 UTC 2026 ===
+=== [UV SYNC] Finished successfully at Mon Feb  2 09:14:11 UTC 2026 ===
+=== [FULL EXPERIMENT] Start for comparative-1-flan-t5-small-commonsenseqa at Mon Feb  2 09:14:11 UTC 2026 ===
+WandB URL: https://wandb.ai/airas/2026-02-02/runs/comparative-1-flan-t5-small-commonsenseqa
+[2026-02-02 09:14:31,703][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/ChilleD/CommonsenseQA/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+[2026-02-02 09:14:31,716][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/ChilleD/CommonsenseQA/a36541679f528e9720788044ef3221da66aacc4e/README.md "HTTP/1.1 200 OK"
+[2026-02-02 09:14:31,728][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/ChilleD/CommonsenseQA/a36541679f528e9720788044ef3221da66aacc4e/README.md "HTTP/1.1 200 OK"
+[2026-02-02 09:14:31,916][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/ChilleD/CommonsenseQA/resolve/a36541679f528e9720788044ef3221da66aacc4e/CommonsenseQA.py "HTTP/1.1 404 Not Found"
+[2026-02-02 09:14:32,466][httpx][INFO] - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/ChilleD/CommonsenseQA/ChilleD/CommonsenseQA.py "HTTP/1.1 404 Not Found"
+[2026-02-02 09:14:32,673][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/datasets/ChilleD/CommonsenseQA/revision/a36541679f528e9720788044ef3221da66aacc4e "HTTP/1.1 200 OK"
+[2026-02-02 09:14:32,856][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/ChilleD/CommonsenseQA/resolve/a36541679f528e9720788044ef3221da66aacc4e/.huggingface.yaml "HTTP/1.1 404 Not Found"
+[2026-02-02 09:14:33,070][httpx][INFO] - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=ChilleD/CommonsenseQA "HTTP/1.1 200 OK"
+[2026-02-02 09:14:33,258][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/datasets/ChilleD/CommonsenseQA/tree/a36541679f528e9720788044ef3221da66aacc4e/data?recursive=true&expand=false "HTTP/1.1 200 OK"
+[2026-02-02 09:14:33,450][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/datasets/ChilleD/CommonsenseQA/tree/a36541679f528e9720788044ef3221da66aacc4e?recursive=false&expand=false "HTTP/1.1 200 OK"
+[2026-02-02 09:14:33,639][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/ChilleD/CommonsenseQA/resolve/a36541679f528e9720788044ef3221da66aacc4e/dataset_infos.json "HTTP/1.1 404 Not Found"
+[2026-02-02 09:14:33,906][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/ChilleD/CommonsenseQA/resolve/a36541679f528e9720788044ef3221da66aacc4e/data/train-00000-of-00001.parquet "HTTP/1.1 302 Found"
+[2026-02-02 09:14:34,088][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/datasets/ChilleD/CommonsenseQA/xet-read-token/a36541679f528e9720788044ef3221da66aacc4e "HTTP/1.1 200 OK"
+[2026-02-02 09:14:35,294][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/ChilleD/CommonsenseQA/resolve/a36541679f528e9720788044ef3221da66aacc4e/data/validation-00000-of-00001.parquet "HTTP/1.1 302 Found"
+[2026-02-02 09:14:35,973][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/ChilleD/CommonsenseQA/resolve/a36541679f528e9720788044ef3221da66aacc4e/data/test-00000-of-00001.parquet "HTTP/1.1 302 Found"
+[2026-02-02 09:14:36,782][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/google/flan-t5-small/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-02-02 09:14:36,791][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/google/flan-t5-small/0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab/config.json "HTTP/1.1 200 OK"
+[2026-02-02 09:14:36,804][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/google/flan-t5-small/0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab/config.json "HTTP/1.1 200 OK"
+[2026-02-02 09:14:36,996][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/google/flan-t5-small/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-02-02 09:14:37,008][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/google/flan-t5-small/0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab/config.json "HTTP/1.1 200 OK"
+[2026-02-02 09:14:37,190][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/google/flan-t5-small/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-02-02 09:14:37,201][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/google/flan-t5-small/0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab/tokenizer_config.json "HTTP/1.1 200 OK"
+[2026-02-02 09:14:37,212][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/google/flan-t5-small/0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab/tokenizer_config.json "HTTP/1.1 200 OK"
+[2026-02-02 09:14:37,404][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/models/google/flan-t5-small/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+[2026-02-02 09:14:37,588][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/models/google/flan-t5-small/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+[2026-02-02 09:14:37,775][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/google/flan-t5-small/resolve/main/spiece.model "HTTP/1.1 302 Found"
+[2026-02-02 09:14:37,955][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/models/google/flan-t5-small/xet-read-token/0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab "HTTP/1.1 200 OK"
+[2026-02-02 09:14:38,584][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/google/flan-t5-small/resolve/main/tokenizer.json "HTTP/1.1 307 Temporary Redirect"
+[2026-02-02 09:14:38,594][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/google/flan-t5-small/0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab/tokenizer.json "HTTP/1.1 200 OK"
+[2026-02-02 09:14:38,606][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/google/flan-t5-small/0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab/tokenizer.json "HTTP/1.1 200 OK"
+[2026-02-02 09:14:38,831][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/google/flan-t5-small/resolve/main/added_tokens.json "HTTP/1.1 404 Not Found"
+[2026-02-02 09:14:39,016][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/google/flan-t5-small/resolve/main/special_tokens_map.json "HTTP/1.1 307 Temporary Redirect"
+[2026-02-02 09:14:39,026][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/google/flan-t5-small/0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab/special_tokens_map.json "HTTP/1.1 200 OK"
+[2026-02-02 09:14:39,037][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/google/flan-t5-small/0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab/special_tokens_map.json "HTTP/1.1 200 OK"
+[2026-02-02 09:14:39,214][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/google/flan-t5-small/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+[2026-02-02 09:14:39,562][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/google/flan-t5-small/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-02-02 09:14:39,571][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/google/flan-t5-small/0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab/config.json "HTTP/1.1 200 OK"
+[2026-02-02 09:14:39,572][transformers.configuration_utils][WARNING] - `torch_dtype` is deprecated! Use `dtype` instead!
+[2026-02-02 09:14:39,952][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/google/flan-t5-small/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+[2026-02-02 09:14:44,715][transformers.modeling_utils][WARNING] - The tied weights mapping and config for this model specifies to tie shared.weight to lm_head.weight, but both are present in the checkpoints, so we will NOT tie them. You should update the config with `tie_word_embeddings=False` to silence this warning
+[2026-02-02 09:14:44,899][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/google/flan-t5-small/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-02-02 09:14:44,914][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/google/flan-t5-small/0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab/generation_config.json "HTTP/1.1 200 OK"
+[2026-02-02 09:14:44,930][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/google/flan-t5-small/0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab/generation_config.json "HTTP/1.1 200 OK"
+WandB URL: https://wandb.ai/airas/2026-02-02/runs/comparative-1-flan-t5-small-commonsenseqa
+=== [FULL EXPERIMENT] PASSED for comparative-1-flan-t5-small-commonsenseqa at Mon Feb  2 09:15:05 UTC 2026 ===
