@@ -15,6 +15,21 @@ from scipy.stats import ttest_ind
 
 matplotlib.use("Agg")
 
+# Set global matplotlib parameters for publication-quality figures
+plt.rcParams.update(
+    {
+        "font.size": 12,
+        "axes.labelsize": 14,
+        "axes.titlesize": 16,
+        "xtick.labelsize": 11,
+        "ytick.labelsize": 11,
+        "legend.fontsize": 11,
+        "figure.dpi": 300,
+        "savefig.dpi": 300,
+        "savefig.bbox": "tight",
+    }
+)
+
 
 PRIMARY_METRIC = "accuracy"
 SAMPLE_METRIC_KEY = "eval/accuracy_pi_future_sample"
@@ -22,9 +37,16 @@ SAMPLE_SUMMARY_KEY = "eval/accuracy_pi_future_samples"
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Evaluate WandB runs and generate figures.")
-    parser.add_argument("results_dir", type=str)
-    parser.add_argument("run_ids", type=str, help='JSON string list of run IDs, e.g. ["run-1", "run-2"]')
+    parser = argparse.ArgumentParser(
+        description="Evaluate WandB runs and generate figures."
+    )
+    parser.add_argument("--results_dir", type=str, required=True)
+    parser.add_argument(
+        "--run_ids",
+        type=str,
+        required=True,
+        help='JSON string list of run IDs, e.g. ["run-1", "run-2"]',
+    )
     return parser.parse_args()
 
 
@@ -41,21 +63,38 @@ def plot_learning_curve(history: pd.DataFrame, metric: str, out_path: Path) -> b
     if series.empty:
         return False
     x_vals = history["_step"] if "_step" in history.columns else history.index
-    plt.figure(figsize=(6, 4))
-    sns.lineplot(x=x_vals, y=history[metric])
-    plt.title(f"{metric} over steps")
-    plt.xlabel("Step")
-    plt.ylabel(metric)
-    plt.annotate(
-        f"final={series.iloc[-1]:.4f}",
-        (x_vals.iloc[-1], series.iloc[-1]),
-        textcoords="offset points",
-        xytext=(0, 10),
-        ha="center",
-    )
+    x_vals = x_vals[series.index]  # Align x_vals with non-null series
+
+    plt.figure(figsize=(8, 5))
+    sns.lineplot(x=x_vals, y=series, linewidth=2)
+
+    # Clean up metric name for title
+    metric_display = metric.replace("_", " ").replace("/", " / ").title()
+    plt.title(f"{metric_display} Over Steps", fontsize=16, fontweight="bold")
+    plt.xlabel("Step", fontsize=14)
+    plt.ylabel(metric_display, fontsize=14)
+
+    # Add final value annotation
+    if len(series) > 0:
+        final_val = series.iloc[-1]
+        final_x = (
+            x_vals.iloc[-1] if hasattr(x_vals, "iloc") else x_vals[series.index[-1]]
+        )
+        plt.annotate(
+            f"Final: {final_val:.4f}",
+            xy=(final_x, final_val),
+            xytext=(10, 10),
+            textcoords="offset points",
+            ha="left",
+            fontsize=11,
+            bbox=dict(boxstyle="round,pad=0.5", facecolor="yellow", alpha=0.7),
+            arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0"),
+        )
+
+    plt.grid(True, alpha=0.3, linestyle="--")
     plt.tight_layout()
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    plt.savefig(out_path)
+    plt.savefig(out_path, dpi=300, bbox_inches="tight")
     plt.close()
     return True
 
@@ -64,23 +103,50 @@ def plot_prompt_accuracy(summary: Dict, out_path: Path) -> bool:
     prompt_keys = {
         k: v
         for k, v in summary.items()
-        if k.startswith("prompt/") and k.endswith("/accuracy_pi_future") and isinstance(v, (int, float))
+        if k.startswith("prompt/")
+        and k.endswith("/accuracy_pi_future")
+        and isinstance(v, (int, float))
     }
     if not prompt_keys:
         return False
     prompt_names = [k.split("/")[1] for k in prompt_keys.keys()]
     values = list(prompt_keys.values())
-    plt.figure(figsize=(7, 4))
-    sns.barplot(x=prompt_names, y=values)
-    plt.title("Prompt Accuracy under $\\pi_{future}$")
-    plt.ylabel("Accuracy")
-    plt.xlabel("Prompt")
-    for idx, val in enumerate(values):
-        plt.text(idx, val + 0.005, f"{val:.3f}", ha="center", va="bottom", fontsize=8)
-    plt.xticks(rotation=30, ha="right")
+
+    plt.figure(figsize=(10, 6))
+    bars = plt.bar(
+        prompt_names, values, color="steelblue", edgecolor="black", linewidth=1.5
+    )
+
+    plt.title(
+        "Prompt Accuracy under $\\pi_{future}$", fontsize=16, fontweight="bold", pad=20
+    )
+    plt.ylabel("Accuracy", fontsize=14)
+    plt.xlabel("Prompt Type", fontsize=14)
+
+    # Add value labels on top of bars
+    for idx, (bar, val) in enumerate(zip(bars, values)):
+        height = bar.get_height()
+        offset = (
+            max(0.01 * (max(values) - min(values)), 0.01)
+            if max(values) != min(values)
+            else 0.01
+        )
+        plt.text(
+            bar.get_x() + bar.get_width() / 2.0,
+            height + offset,
+            f"{val:.3f}",
+            ha="center",
+            va="bottom",
+            fontsize=11,
+            fontweight="bold",
+        )
+
+    # Rotate x-axis labels for readability
+    plt.xticks(rotation=45, ha="right", fontsize=11)
+    plt.grid(axis="y", alpha=0.3, linestyle="--")
     plt.tight_layout()
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    plt.savefig(out_path)
+    plt.savefig(out_path, dpi=300, bbox_inches="tight")
     plt.close()
     return True
 
@@ -91,16 +157,24 @@ def plot_unknown_mass_curve(summary: Dict, out_path: Path) -> bool:
         return False
     xs = [point["alpha0_unknown_mass"] for point in curve]
     ys = [point["accuracy"] for point in curve]
-    plt.figure(figsize=(6, 4))
-    sns.lineplot(x=xs, y=ys, marker="o")
-    plt.title("Accuracy vs UNKNOWN Mass (BRaCHS audit)")
-    plt.xlabel("alpha0_unknown_mass")
-    plt.ylabel("Accuracy")
+
+    plt.figure(figsize=(8, 5))
+    plt.plot(xs, ys, marker="o", linewidth=2, markersize=8, color="steelblue")
+
+    plt.title("Accuracy vs UNKNOWN Mass (BRaCHS Audit)", fontsize=16, fontweight="bold")
+    plt.xlabel("UNKNOWN Mass (α₀)", fontsize=14)
+    plt.ylabel("Accuracy", fontsize=14)
+
+    # Add value labels
+    y_range = max(ys) - min(ys) if len(ys) > 1 and max(ys) != min(ys) else 0.02
+    offset = max(0.02 * y_range, 0.005)
     for x, y in zip(xs, ys):
-        plt.text(x, y + 0.003, f"{y:.3f}", ha="center", fontsize=8)
+        plt.text(x, y + offset, f"{y:.3f}", ha="center", va="bottom", fontsize=11)
+
+    plt.grid(True, alpha=0.3, linestyle="--")
     plt.tight_layout()
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    plt.savefig(out_path)
+    plt.savefig(out_path, dpi=300, bbox_inches="tight")
     plt.close()
     return True
 
@@ -113,14 +187,25 @@ def plot_confusion_matrix(summary: Dict, out_path: Path) -> bool:
     cm = np.asarray(matrix)
     if cm.size == 0:
         return False
-    plt.figure(figsize=(6, 5))
-    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=labels, yticklabels=labels)
-    plt.xlabel("Predicted")
-    plt.ylabel("Gold")
-    plt.title("Confusion Matrix")
+
+    plt.figure(figsize=(8, 7))
+    sns.heatmap(
+        cm,
+        annot=True,
+        fmt="d",
+        cmap="Blues",
+        xticklabels=labels,
+        yticklabels=labels,
+        cbar_kws={"label": "Count"},
+        linewidths=0.5,
+        linecolor="gray",
+    )
+    plt.xlabel("Predicted Label", fontsize=14)
+    plt.ylabel("True Label", fontsize=14)
+    plt.title("Confusion Matrix", fontsize=16, fontweight="bold", pad=20)
     plt.tight_layout()
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    plt.savefig(out_path)
+    plt.savefig(out_path, dpi=300, bbox_inches="tight")
     plt.close()
     return True
 
@@ -128,34 +213,91 @@ def plot_confusion_matrix(summary: Dict, out_path: Path) -> bool:
 def plot_distribution(values: List[float], out_path: Path, title: str) -> bool:
     if not values:
         return False
-    plt.figure(figsize=(6, 4))
-    sns.histplot(values, kde=True, bins=10)
-    plt.title(title)
-    plt.xlabel("Value")
-    plt.ylabel("Count")
+
+    plt.figure(figsize=(8, 5))
+    sns.histplot(
+        values, kde=True, bins=10, color="steelblue", edgecolor="black", linewidth=1.5
+    )
+    plt.title(title, fontsize=16, fontweight="bold", pad=20)
+    plt.xlabel("Value", fontsize=14)
+    plt.ylabel("Frequency", fontsize=14)
+    plt.grid(axis="y", alpha=0.3, linestyle="--")
     plt.tight_layout()
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    plt.savefig(out_path)
+    plt.savefig(out_path, dpi=300, bbox_inches="tight")
     plt.close()
     return True
 
 
-def plot_comparison_bar(metrics: Dict[str, Dict[str, float]], metric_key: str, out_path: Path) -> bool:
+def plot_comparison_bar(
+    metrics: Dict[str, Dict[str, float]], metric_key: str, out_path: Path
+) -> bool:
     if metric_key not in metrics:
         return False
     run_ids = list(metrics[metric_key].keys())
     values = list(metrics[metric_key].values())
-    plt.figure(figsize=(7, 4))
-    sns.barplot(x=run_ids, y=values)
-    plt.title(f"{metric_key} comparison")
-    plt.ylabel(metric_key)
-    plt.xlabel("Run ID")
-    plt.xticks(rotation=30, ha="right")
-    for idx, val in enumerate(values):
-        plt.text(idx, val + 0.005, f"{val:.3f}", ha="center", va="bottom", fontsize=8)
+
+    # Shorten run IDs for better display
+    short_labels = []
+    for rid in run_ids:
+        if "comparative" in rid:
+            parts = rid.replace("comparative-1-", "C1-").split("-commonsenseqa")[0]
+            short_labels.append(parts)
+        elif "proposed" in rid:
+            parts = rid.replace("proposed-", "P-").split("-commonsenseqa")[0]
+            short_labels.append(parts)
+        else:
+            short_labels.append(rid[:20])
+
+    plt.figure(figsize=(12, 6))
+    bars = plt.bar(
+        range(len(values)), values, color="steelblue", edgecolor="black", linewidth=1.5
+    )
+
+    # Color bars differently for comparative vs proposed
+    for i, (bar, rid) in enumerate(zip(bars, run_ids)):
+        if "proposed" in rid:
+            bar.set_color("darkgreen")
+        else:
+            bar.set_color("coral")
+
+    plt.title(
+        f"{metric_key.replace('_', ' ').title()} Comparison",
+        fontsize=16,
+        fontweight="bold",
+        pad=20,
+    )
+    plt.ylabel(metric_key.replace("_", " ").title(), fontsize=14)
+    plt.xlabel("Run ID", fontsize=14)
+
+    # Set x-axis labels
+    plt.xticks(
+        range(len(short_labels)), short_labels, rotation=45, ha="right", fontsize=11
+    )
+
+    # Add value labels on top of bars
+    y_range = (
+        max(values) - min(values)
+        if max(values) != min(values)
+        else max(abs(max(values)), 0.1)
+    )
+    offset = max(0.02 * y_range, 0.005)
+    for idx, (bar, val) in enumerate(zip(bars, values)):
+        height = bar.get_height()
+        plt.text(
+            bar.get_x() + bar.get_width() / 2.0,
+            height + offset,
+            f"{val:.3f}",
+            ha="center",
+            va="bottom",
+            fontsize=11,
+            fontweight="bold",
+        )
+
+    plt.grid(axis="y", alpha=0.3, linestyle="--")
     plt.tight_layout()
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    plt.savefig(out_path)
+    plt.savefig(out_path, dpi=300, bbox_inches="tight")
     plt.close()
     return True
 
@@ -170,15 +312,56 @@ def plot_comparison_box(values_by_run: Dict[str, List[float]], out_path: Path) -
     if not rows:
         return False
     df = pd.DataFrame(rows)
-    plt.figure(figsize=(7, 4))
-    sns.boxplot(data=df, x="run_id", y="value")
-    plt.title("Primary metric distribution")
-    plt.ylabel("Value")
-    plt.xlabel("Run ID")
-    plt.xticks(rotation=30, ha="right")
+
+    # Shorten run IDs for better display
+    short_label_map = {}
+    for rid in df["run_id"].unique():
+        if "comparative" in rid:
+            short_label_map[rid] = rid.replace("comparative-1-", "C1-").split(
+                "-commonsenseqa"
+            )[0]
+        elif "proposed" in rid:
+            short_label_map[rid] = rid.replace("proposed-", "P-").split(
+                "-commonsenseqa"
+            )[0]
+        else:
+            short_label_map[rid] = rid[:20]
+    df["short_id"] = df["run_id"].apply(lambda x: short_label_map[x])
+
+    plt.figure(figsize=(12, 6))
+
+    # Create box plot with custom colors
+    unique_ids = df["run_id"].unique().tolist()
+    box_data = [df[df["run_id"] == rid]["value"].tolist() for rid in unique_ids]
+    box_labels = [short_label_map[rid] for rid in unique_ids]
+
+    box_parts = plt.boxplot(
+        box_data, tick_labels=box_labels, patch_artist=True, widths=0.6
+    )
+
+    # Color boxes differently for comparative vs proposed
+    for patch, rid in zip(box_parts["boxes"], unique_ids):
+        if "proposed" in rid:
+            patch.set_facecolor("lightgreen")
+            patch.set_edgecolor("darkgreen")
+        else:
+            patch.set_facecolor("lightcoral")
+            patch.set_edgecolor("darkred")
+        patch.set_linewidth(2)
+
+    # Style other elements
+    for element in ["whiskers", "fliers", "means", "medians", "caps"]:
+        if element in box_parts:
+            plt.setp(box_parts[element], color="black", linewidth=1.5)
+
+    plt.title("Primary Metric Distribution", fontsize=16, fontweight="bold", pad=20)
+    plt.ylabel("Accuracy", fontsize=14)
+    plt.xlabel("Run ID", fontsize=14)
+    plt.xticks(rotation=45, ha="right", fontsize=11)
+    plt.grid(axis="y", alpha=0.3, linestyle="--")
     plt.tight_layout()
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    plt.savefig(out_path)
+    plt.savefig(out_path, dpi=300, bbox_inches="tight")
     plt.close()
     return True
 
@@ -187,20 +370,47 @@ def plot_metric_table(metrics: Dict[str, Dict[str, float]], out_path: Path) -> b
     if not metrics:
         return False
     df = pd.DataFrame(metrics).T
-    plt.figure(figsize=(10, 0.35 * len(df) + 2))
+
+    # Shorten column names for better display
+    short_cols = []
+    for col in df.columns:
+        if "comparative" in col:
+            short_cols.append(
+                col.replace("comparative-1-", "C1-").split("-commonsenseqa")[0]
+            )
+        elif "proposed" in col:
+            short_cols.append(col.replace("proposed-", "P-").split("-commonsenseqa")[0])
+        else:
+            short_cols.append(col[:15])
+
+    plt.figure(figsize=(14, 0.5 * len(df) + 2))
     plt.axis("off")
+
+    # Create table with better formatting
     table = plt.table(
         cellText=np.round(df.values, 4),
         rowLabels=df.index,
-        colLabels=df.columns,
+        colLabels=short_cols,
         loc="center",
+        cellLoc="center",
     )
     table.auto_set_font_size(False)
-    table.set_fontsize(8)
-    table.scale(1, 1.2)
+    table.set_fontsize(10)
+    table.scale(1, 1.8)
+
+    # Style header row
+    for i in range(len(short_cols)):
+        table[(0, i)].set_facecolor("#4CAF50")
+        table[(0, i)].set_text_props(weight="bold", color="white")
+
+    # Style row labels
+    for i in range(len(df)):
+        table[(i + 1, -1)].set_facecolor("#E0E0E0")
+        table[(i + 1, -1)].set_text_props(weight="bold")
+
     plt.tight_layout()
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    plt.savefig(out_path)
+    plt.savefig(out_path, dpi=300, bbox_inches="tight")
     plt.close()
     return True
 
@@ -208,12 +418,43 @@ def plot_metric_table(metrics: Dict[str, Dict[str, float]], out_path: Path) -> b
 def plot_significance_heatmap(matrix: pd.DataFrame, out_path: Path) -> bool:
     if matrix.empty:
         return False
-    plt.figure(figsize=(6, 5))
-    sns.heatmap(matrix, annot=True, cmap="viridis", fmt=".3f", vmin=0, vmax=1)
-    plt.title("Pairwise t-test p-values")
+
+    # Shorten labels for better display
+    short_labels = []
+    for label in matrix.index:
+        if "comparative" in label:
+            short_labels.append(
+                label.replace("comparative-1-", "C1-").split("-commonsenseqa")[0]
+            )
+        elif "proposed" in label:
+            short_labels.append(
+                label.replace("proposed-", "P-").split("-commonsenseqa")[0]
+            )
+        else:
+            short_labels.append(label[:15])
+
+    plt.figure(figsize=(10, 8))
+    sns.heatmap(
+        matrix,
+        annot=True,
+        cmap="RdYlGn_r",
+        fmt=".3f",
+        vmin=0,
+        vmax=1,
+        xticklabels=short_labels,
+        yticklabels=short_labels,
+        linewidths=0.5,
+        linecolor="gray",
+        cbar_kws={"label": "p-value"},
+    )
+    plt.title("Pairwise t-test p-values", fontsize=16, fontweight="bold", pad=20)
+    plt.xlabel("Run ID", fontsize=14)
+    plt.ylabel("Run ID", fontsize=14)
+    plt.xticks(rotation=45, ha="right", fontsize=11)
+    plt.yticks(rotation=0, fontsize=11)
     plt.tight_layout()
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    plt.savefig(out_path)
+    plt.savefig(out_path, dpi=300, bbox_inches="tight")
     plt.close()
     return True
 
@@ -229,7 +470,9 @@ def is_trial_run(config: Dict) -> bool:
     return False
 
 
-def extract_distribution(history: pd.DataFrame, summary: Dict, primary_key: str) -> List[float]:
+def extract_distribution(
+    history: pd.DataFrame, summary: Dict, primary_key: str
+) -> List[float]:
     if SAMPLE_METRIC_KEY in history.columns:
         series = history[SAMPLE_METRIC_KEY].dropna()
         if len(series) >= 2:
@@ -272,7 +515,9 @@ def main() -> None:
         config = dict(run.config)
 
         if is_trial_run(config):
-            raise RuntimeError(f"Run {run_id} was executed in trial mode; evaluation is disabled.")
+            raise RuntimeError(
+                f"Run {run_id} was executed in trial mode; evaluation is disabled."
+            )
 
         summaries[run_id] = summary
         histories[run_id] = history
@@ -296,7 +541,9 @@ def main() -> None:
             "eval/token_p95_test",
             "eval/drift_generalization_gap",
         ]:
-            lc_path = out_dir / f"{run_id}_learning_curve_{metric.replace('/', '_')}.pdf"
+            lc_path = (
+                out_dir / f"{run_id}_learning_curve_{metric.replace('/', '_')}.pdf"
+            )
             if plot_learning_curve(history, metric, lc_path):
                 generated_files.append(str(lc_path))
 
@@ -321,7 +568,9 @@ def main() -> None:
     metrics: Dict[str, Dict[str, float]] = {}
     for run_id, summary in summaries.items():
         for key, value in summary.items():
-            if isinstance(value, (int, float)) and not (isinstance(value, float) and math.isnan(value)):
+            if isinstance(value, (int, float)) and not (
+                isinstance(value, float) and math.isnan(value)
+            ):
                 metrics.setdefault(key, {})[run_id] = float(value)
 
     primary_key = PRIMARY_METRIC
@@ -342,8 +591,16 @@ def main() -> None:
                 best_baseline = {"run_id": run_id, "value": val}
 
     gap = None
-    if best_proposed["run_id"] and best_baseline["run_id"] and best_baseline["value"] not in (0, None):
-        gap = (best_proposed["value"] - best_baseline["value"]) / best_baseline["value"] * 100
+    if (
+        best_proposed["run_id"]
+        and best_baseline["run_id"]
+        and best_baseline["value"] not in (0, None)
+    ):
+        gap = (
+            (best_proposed["value"] - best_baseline["value"])
+            / best_baseline["value"]
+            * 100
+        )
 
     comparison_dir = results_dir / "comparison"
     comparison_dir.mkdir(parents=True, exist_ok=True)
@@ -362,7 +619,9 @@ def main() -> None:
     if plot_comparison_bar(metrics, primary_key, comp_bar_path):
         generated_files.append(str(comp_bar_path))
 
-    values_by_run = {run_id: values for run_id, values in distributions.items() if values}
+    values_by_run = {
+        run_id: values for run_id, values in distributions.items() if values
+    }
     if not values_by_run:
         for run_id, summary in summaries.items():
             if primary_key in summary:

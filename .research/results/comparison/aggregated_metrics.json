@@ -1,0 +1,566 @@
+{
+  "primary_metric": "accuracy",
+  "metrics": {
+    "_runtime": {
+      "comparative-1-flan-t5-small-commonsenseqa": 31.320471154,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 4386.78263994,
+      "proposed-flan-t5-small-commonsenseqa": 35.926065183,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 4522.394148742
+    },
+    "_step": {
+      "comparative-1-flan-t5-small-commonsenseqa": 91.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 222.0,
+      "proposed-flan-t5-small-commonsenseqa": 91.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 222.0
+    },
+    "_timestamp": {
+      "comparative-1-flan-t5-small-commonsenseqa": 1770023702.6875722,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 1770028055.8039114,
+      "proposed-flan-t5-small-commonsenseqa": 1770023961.6611123,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 1770028919.2173655
+    },
+    "accuracy": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "eval/accuracy_pi_future": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "eval/accuracy_pi_future_sample": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "eval/accuracy_pi_recent": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "eval/accuracy_pi_recent_sample": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "eval/drift_generalization_gap": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "eval/selection_stability_bootstrap": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.28,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 1.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.28,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 1.0
+    },
+    "eval/token_p95_test": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "eval/validity_pi_future": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.23333333333333328,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.07311111111111113,
+      "proposed-flan-t5-small-commonsenseqa": 0.23333333333333328,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.07311111111111113
+    },
+    "eval/validity_pi_future_sample": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "eval/validity_pi_recent": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.2666666666666667,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0835555555555556,
+      "proposed-flan-t5-small-commonsenseqa": 0.2666666666666667,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0835555555555556
+    },
+    "eval/validity_pi_recent_sample": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "generation/dev_cal/direct_letter/batch_idx": {
+      "comparative-1-flan-t5-small-commonsenseqa": 15.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 124.0,
+      "proposed-flan-t5-small-commonsenseqa": 15.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 124.0
+    },
+    "generation/dev_cal/direct_letter/batch_size": {
+      "comparative-1-flan-t5-small-commonsenseqa": 10.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 2.0,
+      "proposed-flan-t5-small-commonsenseqa": 10.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 2.0
+    },
+    "generation/dev_cal/direct_letter/elapsed_s": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.4418759346008301,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 227.98069858551025,
+      "proposed-flan-t5-small-commonsenseqa": 0.42768359184265137,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 231.8927845954895
+    },
+    "generation/dev_cal/direct_letter/mean_new_tokens": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "generation/dev_sel/direct_letter/batch_idx": {
+      "comparative-1-flan-t5-small-commonsenseqa": 15.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 124.0,
+      "proposed-flan-t5-small-commonsenseqa": 15.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 124.0
+    },
+    "generation/dev_sel/direct_letter/batch_size": {
+      "comparative-1-flan-t5-small-commonsenseqa": 10.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 2.0,
+      "proposed-flan-t5-small-commonsenseqa": 10.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 2.0
+    },
+    "generation/dev_sel/direct_letter/elapsed_s": {
+      "comparative-1-flan-t5-small-commonsenseqa": 1.0755445957183838,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 230.5386667251587,
+      "proposed-flan-t5-small-commonsenseqa": 1.0297114849090576,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 232.5735821723938
+    },
+    "generation/dev_sel/direct_letter/mean_new_tokens": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "generation/test/cot/batch_idx": {
+      "comparative-1-flan-t5-small-commonsenseqa": 18.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 149.0,
+      "proposed-flan-t5-small-commonsenseqa": 18.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 149.0
+    },
+    "generation/test/cot/batch_size": {
+      "comparative-1-flan-t5-small-commonsenseqa": 12.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 2.0,
+      "proposed-flan-t5-small-commonsenseqa": 12.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 2.0
+    },
+    "generation/test/cot/elapsed_s": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.5119724273681641,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 273.1708800792694,
+      "proposed-flan-t5-small-commonsenseqa": 0.5005338191986084,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 278.66151690483093
+    },
+    "generation/test/cot/mean_new_tokens": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "generation/test/cot_short/batch_idx": {
+      "comparative-1-flan-t5-small-commonsenseqa": 18.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 149.0,
+      "proposed-flan-t5-small-commonsenseqa": 18.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 149.0
+    },
+    "generation/test/cot_short/batch_size": {
+      "comparative-1-flan-t5-small-commonsenseqa": 12.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 2.0,
+      "proposed-flan-t5-small-commonsenseqa": 12.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 2.0
+    },
+    "generation/test/cot_short/elapsed_s": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.5023143291473389,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 271.53578877449036,
+      "proposed-flan-t5-small-commonsenseqa": 0.4887242317199707,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 279.3810782432556
+    },
+    "generation/test/cot_short/mean_new_tokens": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "generation/test/direct_letter/batch_idx": {
+      "comparative-1-flan-t5-small-commonsenseqa": 18.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 149.0,
+      "proposed-flan-t5-small-commonsenseqa": 18.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 149.0
+    },
+    "generation/test/direct_letter/batch_size": {
+      "comparative-1-flan-t5-small-commonsenseqa": 12.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 2.0,
+      "proposed-flan-t5-small-commonsenseqa": 12.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 2.0
+    },
+    "generation/test/direct_letter/elapsed_s": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.5212156772613525,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 271.9794363975525,
+      "proposed-flan-t5-small-commonsenseqa": 0.5083236694335938,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 278.5995855331421
+    },
+    "generation/test/direct_letter/mean_new_tokens": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "generation/test/json_only/batch_idx": {
+      "comparative-1-flan-t5-small-commonsenseqa": 18.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 149.0,
+      "proposed-flan-t5-small-commonsenseqa": 18.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 149.0
+    },
+    "generation/test/json_only/batch_size": {
+      "comparative-1-flan-t5-small-commonsenseqa": 12.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 2.0,
+      "proposed-flan-t5-small-commonsenseqa": 12.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 2.0
+    },
+    "generation/test/json_only/elapsed_s": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.5107262134552002,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 273.047438621521,
+      "proposed-flan-t5-small-commonsenseqa": 0.4853487014770508,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 279.60146951675415
+    },
+    "generation/test/json_only/mean_new_tokens": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "generation/test/json_then_letter/batch_idx": {
+      "comparative-1-flan-t5-small-commonsenseqa": 18.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 149.0,
+      "proposed-flan-t5-small-commonsenseqa": 18.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 149.0
+    },
+    "generation/test/json_then_letter/batch_size": {
+      "comparative-1-flan-t5-small-commonsenseqa": 12.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 2.0,
+      "proposed-flan-t5-small-commonsenseqa": 12.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 2.0
+    },
+    "generation/test/json_then_letter/elapsed_s": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.49486446380615234,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 273.3484330177307,
+      "proposed-flan-t5-small-commonsenseqa": 0.488896131515503,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 281.3292739391327
+    },
+    "generation/test/json_then_letter/mean_new_tokens": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "generation/test/self_critique/batch_idx": {
+      "comparative-1-flan-t5-small-commonsenseqa": 18.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 149.0,
+      "proposed-flan-t5-small-commonsenseqa": 18.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 149.0
+    },
+    "generation/test/self_critique/batch_size": {
+      "comparative-1-flan-t5-small-commonsenseqa": 12.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 2.0,
+      "proposed-flan-t5-small-commonsenseqa": 12.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 2.0
+    },
+    "generation/test/self_critique/elapsed_s": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.4884369373321533,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 272.02772068977356,
+      "proposed-flan-t5-small-commonsenseqa": 0.4798316955566406,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 279.37075638771057
+    },
+    "generation/test/self_critique/mean_new_tokens": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "init/is_encoder_decoder": {
+      "comparative-1-flan-t5-small-commonsenseqa": 1.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 1.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "prompt/cot/acc_quantile": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.16113087195942033
+    },
+    "prompt/cot/accuracy_pi_future": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "prompt/cot/constraint_pass": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "prompt/cot/inv_quantile": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.5570848693421264
+    },
+    "prompt/cot/token_p95_cal": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "prompt/cot/token_p95_test": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "prompt/cot/validity_pi_future": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.23333333333333328,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.08244444444444443,
+      "proposed-flan-t5-small-commonsenseqa": 0.23333333333333328,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.08244444444444443
+    },
+    "prompt/cot_short/acc_quantile": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.15587194629163612
+    },
+    "prompt/cot_short/accuracy_pi_future": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "prompt/cot_short/constraint_pass": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "prompt/cot_short/inv_quantile": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.5570848693421264
+    },
+    "prompt/cot_short/token_p95_cal": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "prompt/cot_short/token_p95_test": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "prompt/cot_short/validity_pi_future": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.23333333333333328,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.13766666666666671,
+      "proposed-flan-t5-small-commonsenseqa": 0.23333333333333328,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.13766666666666671
+    },
+    "prompt/direct_letter/acc_quantile": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.15587194629163612
+    },
+    "prompt/direct_letter/accuracy_pi_future": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "prompt/direct_letter/constraint_pass": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "prompt/direct_letter/inv_quantile": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.5570848693421264
+    },
+    "prompt/direct_letter/token_p95_cal": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "prompt/direct_letter/token_p95_test": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "prompt/direct_letter/validity_pi_future": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.23333333333333328,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.07311111111111113,
+      "proposed-flan-t5-small-commonsenseqa": 0.23333333333333328,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.07311111111111113
+    },
+    "prompt/json_only/acc_quantile": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.16113087195942033
+    },
+    "prompt/json_only/accuracy_pi_future": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "prompt/json_only/constraint_pass": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "prompt/json_only/inv_quantile": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.5570848693421264
+    },
+    "prompt/json_only/token_p95_cal": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "prompt/json_only/token_p95_test": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "prompt/json_only/validity_pi_future": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.23333333333333328,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.049111111111111105,
+      "proposed-flan-t5-small-commonsenseqa": 0.23333333333333328,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.049111111111111105
+    },
+    "prompt/json_then_letter/acc_quantile": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.16113087195942033
+    },
+    "prompt/json_then_letter/accuracy_pi_future": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "prompt/json_then_letter/constraint_pass": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "prompt/json_then_letter/inv_quantile": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.5570848693421264
+    },
+    "prompt/json_then_letter/token_p95_cal": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "prompt/json_then_letter/token_p95_test": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "prompt/json_then_letter/validity_pi_future": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.23333333333333328,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.10888888888888892,
+      "proposed-flan-t5-small-commonsenseqa": 0.23333333333333328,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.10888888888888892
+    },
+    "prompt/self_critique/acc_quantile": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.15236942471124032
+    },
+    "prompt/self_critique/accuracy_pi_future": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "prompt/self_critique/constraint_pass": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.0
+    },
+    "prompt/self_critique/inv_quantile": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.5570848693421264
+    },
+    "prompt/self_critique/token_p95_cal": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "prompt/self_critique/token_p95_test": {
+      "comparative-1-flan-t5-small-commonsenseqa": 2.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 96.0,
+      "proposed-flan-t5-small-commonsenseqa": 2.0,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 96.0
+    },
+    "prompt/self_critique/validity_pi_future": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.23333333333333328,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.07933333333333337,
+      "proposed-flan-t5-small-commonsenseqa": 0.23333333333333328,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.07933333333333337
+    },
+    "selection/alpha0_unknown_mass": {
+      "comparative-1-flan-t5-small-commonsenseqa": 4.0,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 1.0,
+      "proposed-flan-t5-small-commonsenseqa": 0.5,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.5
+    },
+    "selection/posterior_quantile": {
+      "comparative-1-flan-t5-small-commonsenseqa": 0.2,
+      "comparative-1-mistral-7b-v0.3-commonsenseqa": 0.05,
+      "proposed-flan-t5-small-commonsenseqa": 0.1,
+      "proposed-mistral-7b-v0.3-commonsenseqa": 0.1
+    },
+    "prompt/cot/acc_cvar": {
+      "proposed-flan-t5-small-commonsenseqa": 0.14190353016515583
+    },
+    "prompt/cot/inv_cvar": {
+      "proposed-flan-t5-small-commonsenseqa": 0.6099368181924685
+    },
+    "prompt/cot_short/acc_cvar": {
+      "proposed-flan-t5-small-commonsenseqa": 0.1372721388739657
+    },
+    "prompt/cot_short/inv_cvar": {
+      "proposed-flan-t5-small-commonsenseqa": 0.6099368181924685
+    },
+    "prompt/direct_letter/acc_cvar": {
+      "proposed-flan-t5-small-commonsenseqa": 0.1372721388739657
+    },
+    "prompt/direct_letter/inv_cvar": {
+      "proposed-flan-t5-small-commonsenseqa": 0.6099368181924685
+    },
+    "prompt/json_only/acc_cvar": {
+      "proposed-flan-t5-small-commonsenseqa": 0.14190353016515583
+    },
+    "prompt/json_only/inv_cvar": {
+      "proposed-flan-t5-small-commonsenseqa": 0.6099368181924685
+    },
+    "prompt/json_then_letter/acc_cvar": {
+      "proposed-flan-t5-small-commonsenseqa": 0.14190353016515583
+    },
+    "prompt/json_then_letter/inv_cvar": {
+      "proposed-flan-t5-small-commonsenseqa": 0.6099368181924685
+    },
+    "prompt/self_critique/acc_cvar": {
+      "proposed-flan-t5-small-commonsenseqa": 0.13418756438681853
+    },
+    "prompt/self_critique/inv_cvar": {
+      "proposed-flan-t5-small-commonsenseqa": 0.6099368181924685
+    }
+  },
+  "best_proposed": {
+    "run_id": "proposed-flan-t5-small-commonsenseqa",
+    "value": 0.0
+  },
+  "best_baseline": {
+    "run_id": "comparative-1-flan-t5-small-commonsenseqa",
+    "value": 0.0
+  },
+  "gap": null
+}
