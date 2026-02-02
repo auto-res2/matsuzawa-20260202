@@ -13,9 +13,9 @@ PROMPTS: Dict[str, str] = {
     "direct_letter": "{q}\nChoices:\n{choices}\nAnswer with a single letter.",
     "cot": "{q}\nChoices:\n{choices}\nLet's think step by step. Then answer with a single letter.",
     "cot_short": "{q}\nChoices:\n{choices}\nThink step by step in <=40 tokens. Then answer with a single letter.",
-    "json_only": "{q}\nChoices:\n{choices}\nRespond ONLY as JSON: {\"answer\":\"A\"}.",
+    "json_only": "{q}\nChoices:\n{choices}\nRespond ONLY as JSON: {{\"answer\":\"A\"}}.",
     "self_critique": "{q}\nChoices:\n{choices}\nReason, critique your reasoning, then give FINAL ANSWER as a single letter.",
-    "json_then_letter": "{q}\nChoices:\n{choices}\nReturn JSON {\"answer\":\"A\"} then on a new line write FINAL=A.",
+    "json_then_letter": "{q}\nChoices:\n{choices}\nReturn JSON {{\"answer\":\"A\"}} then on a new line write FINAL=A.",
 }
 
 
