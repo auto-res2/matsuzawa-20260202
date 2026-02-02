@@ -1,0 +1,61 @@
+defaults:
+  - _self_
+  - run: proposed-flan-t5-small-commonsenseqa
+
+mode: full
+results_dir: ./results
+
+wandb:
+  entity: airas
+  project: 2026-02-02
+  mode: online
+
+method_defaults:
+  conformal_tau: 0.05
+  eval_parsers: 30
+  eval_samples: 30
+  bootstrap_samples: 50
+  dirichlet_samples: 2000
+  per_mode_parsers: 8
+  cvar_delta: 0.05
+  invalid_eps: 0.05
+  token_p95_budget: 40
+  alpha: 0.05
+  posterior_quantile: 0.1
+  unknown_mass_grid: [0.5, 1, 2, 4, 8, 12]
+  audit_grid: [0.5, 1, 2, 4, 8, 12]
+  alpha0_base: 0.5
+  lenient_mode: M1_LETTER_LAST
+  harness_history:
+    total: 60
+    train: 40
+    old_count: 40
+    recent_count: 20
+    exclude_modes:
+      - M6_JSON_STRICT_ENTIRE_PLUS_PREFIX
+  drift_distributions:
+    pi_old:
+      M1_LETTER_LAST: 0.45
+      M2_LETTER_FIRST: 0.15
+      M3_LETTER_FINAL_PREFIX: 0.05
+      M4_JSON_EXTRACT_FIRST_BLOCK: 0.30
+      M5_JSON_STRICT_ENTIRE_OUTPUT: 0.05
+    pi_recent:
+      M1_LETTER_LAST: 0.25
+      M2_LETTER_FIRST: 0.05
+      M3_LETTER_FINAL_PREFIX: 0.20
+      M4_JSON_EXTRACT_FIRST_BLOCK: 0.25
+      M5_JSON_STRICT_ENTIRE_OUTPUT: 0.25
+    pi_future:
+      M1_LETTER_LAST: 0.18
+      M2_LETTER_FIRST: 0.05
+      M3_LETTER_FINAL_PREFIX: 0.17
+      M4_JSON_EXTRACT_FIRST_BLOCK: 0.18
+      M5_JSON_STRICT_ENTIRE_OUTPUT: 0.22
+      M6_JSON_STRICT_ENTIRE_PLUS_PREFIX: 0.20
+
+hydra:
+  job:
+    chdir: false
+  run:
+    dir: .

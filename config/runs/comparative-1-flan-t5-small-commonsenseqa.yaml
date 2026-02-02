@@ -1,0 +1,47 @@
+run_id: comparative-1-flan-t5-small-commonsenseqa
+method: BRaCHS (hand-set UNKNOWN prior; posterior-quantile aggregation)
+model:
+  name: google/flan-t5-small
+  max_new_tokens: 96
+  decoding: greedy
+  seed: 0
+dataset:
+  name: commonsenseqa
+  max_length: 512
+  split:
+    dev: 500
+    test: 300
+    dev_sel: 250
+    dev_cal: 250
+training:
+  inference_only: true
+  learning_rate: 0.0
+  batch_size: 16
+  epochs: 0
+  optimizer: none
+  warmup_steps: 0
+method_params:
+  drift_modes:
+    - M1_LETTER_LAST
+    - M2_LETTER_FIRST
+    - M3_LETTER_FINAL_PREFIX
+    - M4_JSON_EXTRACT_FIRST_BLOCK
+    - M5_JSON_STRICT_ENTIRE_OUTPUT
+    - M6_JSON_STRICT_ENTIRE_PLUS_PREFIX
+  unknown_bucket: true
+  alpha0_unknown_mass: 1.0
+  posterior_quantile: 0.1
+  per_mode_parsers: 8
+  invalid_eps: 0.05
+  token_p95_budget: 40
+  alpha: 0.05
+optuna:
+  enabled: true
+  n_trials: 20
+  search_spaces:
+    - param_name: alpha0_unknown_mass
+      distribution_type: categorical
+      choices: [0.5, 1, 2, 4, 8, 12]
+    - param_name: posterior_quantile
+      distribution_type: categorical
+      choices: [0.05, 0.1, 0.2]

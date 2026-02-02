@@ -1,0 +1,42 @@
+run_id: proposed-mistral-7b-v0.3-commonsenseqa
+method: Empirical-Bayes CVaR-BRaCHS (EB-CVaR-BRaCHS)
+model:
+  name: mistralai/Mistral-7B-v0.3
+  max_new_tokens: 96
+  decoding: greedy
+  seed: 0
+dataset:
+  name: commonsenseqa
+  max_length: 512
+  split:
+    dev: 500
+    test: 300
+    dev_sel: 250
+    dev_cal: 250
+training:
+  inference_only: true
+  learning_rate: 0.0
+  batch_size: 2
+  epochs: 0
+  optimizer: none
+  warmup_steps: 0
+method_params:
+  drift_modes:
+    - M1_LETTER_LAST
+    - M2_LETTER_FIRST
+    - M3_LETTER_FINAL_PREFIX
+    - M4_JSON_EXTRACT_FIRST_BLOCK
+    - M5_JSON_STRICT_ENTIRE_OUTPUT
+    - M6_JSON_STRICT_ENTIRE_PLUS_PREFIX
+  unknown_bucket: true
+  empirical_bayes_unknown_mass: true
+  dirichlet_samples: 2000
+  per_mode_parsers: 8
+  cvar_delta: 0.05
+  invalid_eps: 0.05
+  token_p95_budget: 40
+  alpha: 0.05
+optuna:
+  enabled: false
+  n_trials: 20
+  search_spaces: []
