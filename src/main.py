@@ -25,7 +25,7 @@ def main(cfg: DictConfig) -> None:
 
     run_choice = cfg.run.run_id
     overrides = [
-        f"run={run_choice}",
+        f"runs={run_choice}",
         f"results_dir={cfg.results_dir}",
         f"mode={cfg.mode}",
         f"wandb.mode={cfg.wandb.mode}",

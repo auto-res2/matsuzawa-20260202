@@ -1,6 +1,6 @@
 defaults:
   - _self_
-  - run: proposed-flan-t5-small-commonsenseqa
+  - runs: proposed-flan-t5-small-commonsenseqa
 
 mode: full
 results_dir: ./results
