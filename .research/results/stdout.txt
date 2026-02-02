@@ -137,3 +137,11 @@ WandB logging disabled (trial mode).
 [2026-02-02 09:02:25,106][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/tau/commonsense_qa/resolve/94630fe30dad47192a8546eb75f094926d47e155/commonsense_qa.py "HTTP/1.1 404 Not Found"
 [2026-02-02 09:02:25,703][httpx][INFO] - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/commonsense_qa/commonsense_qa.py "HTTP/1.1 200 OK"
 [2026-02-02 09:02:25,913][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/datasets/commonsense_qa/revision/94630fe30dad47192a8546eb75f094926d47e155 "HTTP/1.1 307 Temporary Redirect"
+=== [UV SYNC] Start at Mon Feb  2 09:05:07 UTC 2026 ===
+=== [UV SYNC] Finished successfully at Mon Feb  2 09:05:08 UTC 2026 ===
+=== [TRIAL RUN] Start for proposed-flan-t5-small-commonsenseqa at Mon Feb  2 09:05:08 UTC 2026 ===
+[2026-02-02 09:05:23,165][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/tau/commonsense_qa/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+[2026-02-02 09:05:23,176][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/tau/commonsense_qa/94630fe30dad47192a8546eb75f094926d47e155/README.md "HTTP/1.1 200 OK"
+[2026-02-02 09:05:23,187][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/tau/commonsense_qa/94630fe30dad47192a8546eb75f094926d47e155/README.md "HTTP/1.1 200 OK"
+[2026-02-02 09:05:23,366][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/tau/commonsense_qa/resolve/94630fe30dad47192a8546eb75f094926d47e155/commonsense_qa.py "HTTP/1.1 404 Not Found"
+[2026-02-02 09:05:23,960][httpx][INFO] - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/tau/commonsense_qa/tau/commonsense_qa.py "HTTP/1.1 404 Not Found"

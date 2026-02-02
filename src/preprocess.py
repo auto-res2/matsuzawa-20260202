@@ -48,7 +48,7 @@ def load_mcqa_splits(dataset_cfg, seed: int):
         )
     elif name in ("commonsenseqa", "commonsense_qa"):
         hf_name, hf_config, split_dev, split_test, formatter = (
-            "tau/commonsense_qa",
+            "ChilleD/CommonsenseQA",
             None,
             "validation",
             "test",

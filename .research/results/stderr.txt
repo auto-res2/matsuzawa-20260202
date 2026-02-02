@@ -404,3 +404,180 @@ Traceback (most recent call last):
 subprocess.CalledProcessError: Command '['/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/bin/python3', '-m', 'src.train', 'runs@run=proposed-flan-t5-small-commonsenseqa', 'results_dir=.research/results', 'mode=trial', 'wandb.mode=disabled', 'run.optuna.n_trials=0', 'run.optuna.enabled=false']' returned non-zero exit status 1.
 
 Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+Using CPython 3.11.14
+Creating virtual environment at: .venv
+Resolved 107 packages in 138ms
+Installed 95 packages in 297ms
+ + aiohappyeyeballs==2.6.1
+ + aiohttp==3.13.3
+ + aiosignal==1.4.0
+ + alembic==1.18.3
+ + annotated-types==0.7.0
+ + antlr4-python3-runtime==4.9.3
+ + anyio==4.12.1
+ + attrs==25.4.0
+ + certifi==2026.1.4
+ + charset-normalizer==3.4.4
+ + click==8.3.1
+ + colorlog==6.10.1
+ + contourpy==1.3.3
+ + cuda-bindings==12.9.4
+ + cuda-pathfinder==1.3.3
+ + cycler==0.12.1
+ + datasets==4.5.0
+ + dill==0.4.0
+ + eb-cvar-brachs==0.1.0 (from file:///workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202)
+ + filelock==3.20.3
+ + fonttools==4.61.1
+ + frozenlist==1.8.0
+ + fsspec==2025.10.0
+ + gitdb==4.0.12
+ + gitpython==3.1.46
+ + greenlet==3.3.1
+ + h11==0.16.0
+ + hf-xet==1.2.0
+ + httpcore==1.0.9
+ + httpx==0.28.1
+ + huggingface-hub==1.3.5
+ + hydra-core==1.3.2
+ + idna==3.11
+ + jinja2==3.1.6
+ + kiwisolver==1.4.9
+ + mako==1.3.10
+ + markupsafe==3.0.3
+ + matplotlib==3.10.8
+ + mpmath==1.3.0
+ + multidict==6.7.1
+ + multiprocess==0.70.18
+ + networkx==3.6.1
+ + numpy==2.4.2
+ + nvidia-cublas-cu12==12.8.4.1
+ + nvidia-cuda-cupti-cu12==12.8.90
+ + nvidia-cuda-nvrtc-cu12==12.8.93
+ + nvidia-cuda-runtime-cu12==12.8.90
+ + nvidia-cudnn-cu12==9.10.2.21
+ + nvidia-cufft-cu12==11.3.3.83
+ + nvidia-cufile-cu12==1.13.1.3
+ + nvidia-curand-cu12==10.3.9.90
+ + nvidia-cusolver-cu12==11.7.3.90
+ + nvidia-cusparse-cu12==12.5.8.93
+ + nvidia-cusparselt-cu12==0.7.1
+ + nvidia-nccl-cu12==2.27.5
+ + nvidia-nvjitlink-cu12==12.8.93
+ + nvidia-nvshmem-cu12==3.4.5
+ + nvidia-nvtx-cu12==12.8.90
+ + omegaconf==2.3.0
+ + optuna==4.7.0
+ + packaging==26.0
+ + pandas==3.0.0
+ + pillow==12.1.0
+ + platformdirs==4.5.1
+ + propcache==0.4.1
+ + protobuf==6.33.5
+ + pyarrow==23.0.0
+ + pydantic==2.12.5
+ + pydantic-core==2.41.5
+ + pyparsing==3.3.2
+ + python-dateutil==2.9.0.post0
+ + pyyaml==6.0.3
+ + regex==2026.1.15
+ + requests==2.32.5
+ + safetensors==0.7.0
+ + scipy==1.17.0
+ + seaborn==0.13.2
+ + sentry-sdk==2.51.0
+ + shellingham==1.5.4
+ + six==1.17.0
+ + smmap==5.0.2
+ + sqlalchemy==2.0.46
+ + sympy==1.14.0
+ + tokenizers==0.22.2
+ + torch==2.10.0
+ + tqdm==4.67.2
+ + transformers==5.0.0
+ + triton==3.6.0
+ + typer-slim==0.21.1
+ + typing-extensions==4.15.0
+ + typing-inspection==0.4.2
+ + urllib3==2.6.3
+ + wandb==0.24.1
+ + xxhash==3.6.0
+ + yarl==1.22.0
+Error executing job with overrides: ['runs@run=proposed-flan-t5-small-commonsenseqa', 'results_dir=.research/results', 'mode=trial', 'wandb.mode=disabled', 'run.optuna.n_trials=0', 'run.optuna.enabled=false']
+Traceback (most recent call last):
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/src/train.py", line 369, in main
+    dev_sel, dev_cal, test, kletter = preprocess.load_mcqa_splits(run_cfg.dataset, run_cfg.model.seed)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/src/preprocess.py", line 72, in load_mcqa_splits
+    dataset = load_dataset(hf_name, hf_config, cache_dir=CACHE_DIR) if hf_config else load_dataset(
+                                                                                      ^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/datasets/load.py", line 1488, in load_dataset
+    builder_instance = load_dataset_builder(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/datasets/load.py", line 1133, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/datasets/load.py", line 1032, in dataset_module_factory
+    raise e1 from None
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/datasets/load.py", line 1007, in dataset_module_factory
+    ).get_module()
+      ^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/datasets/load.py", line 593, in get_module
+    standalone_yaml_path = cached_path(
+                           ^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/datasets/utils/file_utils.py", line 180, in cached_path
+    ).resolve_path(url_or_filename)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/huggingface_hub/hf_file_system.py", line 282, in resolve_path
+    repo_and_revision_exist, err = self._repo_and_revision_exist(repo_type, repo_id, revision)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/huggingface_hub/hf_file_system.py", line 209, in _repo_and_revision_exist
+    self._api.repo_info(
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/huggingface_hub/hf_api.py", line 2978, in repo_info
+    return method(
+           ^^^^^^^
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/huggingface_hub/hf_api.py", line 2841, in dataset_info
+    r = get_session().get(path, headers=headers, timeout=timeout, params=params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1053, in get
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/home/runner/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+Error executing job with overrides: ['run=proposed-flan-t5-small-commonsenseqa', 'results_dir=.research/results', 'mode=trial']
+Traceback (most recent call last):
+  File "/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/src/main.py", line 48, in main
+    subprocess.run(cmd, check=True, env=os.environ.copy())
+  File "/home/runner/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/workspace/actions-runner/_work/matsuzawa-20260202/matsuzawa-20260202/.venv/bin/python3', '-m', 'src.train', 'runs@run=proposed-flan-t5-small-commonsenseqa', 'results_dir=.research/results', 'mode=trial', 'wandb.mode=disabled', 'run.optuna.n_trials=0', 'run.optuna.enabled=false']' returned non-zero exit status 1.
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
