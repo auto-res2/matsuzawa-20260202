@@ -23,7 +23,12 @@ def main(cfg: DictConfig) -> None:
     OmegaConf.set_struct(cfg, False)
     apply_mode(cfg)
 
-    run_choice = cfg.run.run_id
+    # Handle case where cfg.run is already a string (override was passed)
+    if isinstance(cfg.run, str):
+        run_choice = cfg.run
+    else:
+        run_choice = cfg.run.run_id
+    
     overrides = [
         f"runs@run={run_choice}",
         f"results_dir={cfg.results_dir}",
